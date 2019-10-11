@@ -1,0 +1,51 @@
+<div class="Container">
+<h2>{{title}}</h2>
+
+<div class="message success" *ngIf="status == 'success' ">
+  Proyecto creado:  <a [routerLink]="['/Detail', saveProject._id]" >Ver Proyecto</a>
+</div>
+<div class="message failed" *ngIf="status == 'failed'">
+  El Proyecto no se pudo crear
+</div>
+ <form #projectForm="ngForm" (ngSubmit)= "onSubmit (projectForm)">
+<p>
+  <label for="name">Nombre</label>
+  <input type="text" name="name" #name ="ngModel"[(ngModel)]="project.name" required >
+  <span class ="error" *ngIf="name.touched && !name.valid" >
+    El nombres es obligatorio
+  </span>
+</p>
+
+<p>
+  <label for="description">Descripcion</label>
+  <textarea  name="description" #description ="ngModel"[(ngModel)]="project.description" required ></textarea>
+  <span class ="error" *ngIf="description.touched && !description.valid" >
+    Descripcion es obligatorio
+  </span>
+</p>
+
+<p>
+  <label for="category">Categoria</label>
+  <input type="text" name="category" #category ="ngModel"[(ngModel)]="project.category" required >
+  <span class ="error" *ngIf="category.touched && !category.valid" >
+    Categoria es obligatorio
+  </span>
+</p>
+<p>
+  <label for="year">Año de lanzamiento</label>
+<input type="number" name ="year" #year ="ngModel" [(ngModel)]="project.year"   required >
+<span class ="error" *ngIf="year.touched && !year.valid" >
+  Año es obligatorio
+</span>
+</p>
+
+
+<p>
+
+  <label for="img">Proyecto</label>
+  <input type="file" name ="image " placeholder="Subir imagen" (change) = "fileChangeEvent($event)">
+</p>
+<input type="submit" value ="Guardar" [disabled]="!projectForm.form.valid">
+</form>
+
+</div>

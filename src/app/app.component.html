@@ -1,0 +1,18 @@
+<header>
+<ul>
+<li><a [routerLink]="['/Sobremi']" [routerLinkActive]="['actived']" >Sobremi </a></li>
+<li><a [routerLink]="['/Proyecto']" >proyecto</a></li>
+<li id ="logo"><a href="#">Angular</a></li>
+<li><a [routerLink]="['/Crear-proyecto']">Crear proyecto</a></li>
+<li><a [routerLink]="['/Contacto']">Contacto</a></li>
+</ul>
+</header>
+
+<section id="contenido">
+    <router-outlet></router-outlet><!-- Permite usar las rutas en la vista-->
+
+
+
+
+</section>
+<footer>Master en javascript</footer>
